@@ -1,0 +1,48 @@
+
+
+<p *ngIf="!data"><em>Loading...</em></p>
+<table class="table table-striped" [mfData]="data" #mf="mfDataTable" [mfRowsOnPage]="5" *ngIf="data">
+  <thead>
+    <tr>
+      <th style="width: 20%">
+        <mfDefaultSorter by="id">Id</mfDefaultSorter>
+      </th>
+      <th style="width: 20%">
+        <mfDefaultSorter by="date">Дата Платежа</mfDefaultSorter>
+      </th>
+      <th style="width: 40%">
+        <mfDefaultSorter by="cardNumber">Номер Карта</mfDefaultSorter>
+      </th>
+      <th style="width: 60%">
+        <mfDefaultSorter by="sum">Сумма платежа</mfDefaultSorter>
+      </th>
+      <th style="width: 20%">
+        <mfDefaultSorter by="email">Почта</mfDefaultSorter>
+      </th>
+
+      <th style="width: 20%">
+          <mfDefaultSorter by="comment">Комментарий</mfDefaultSorter>
+        </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let payment of mf.data" [ngStyle]="payment.state == 1 && {'background-color':'red'}">
+        <td >{{ payment.id }}</td>
+      <td>{{ payment.date }}</td>
+      <td>{{ payment.cardNumber }}</td>
+      <td>{{ payment.sum }}</td>
+      <td>{{ payment.email }}</td>
+      <td>{{ payment.comment }}</td>
+      <td *ngIf="payment.state == 0 "><input type="button" id="request" name="1" (click)="cancellPayment(payment)" value="Отменить"></td>
+    </tr>
+  </tbody>
+  <tfoot>
+    <tr>
+      <td colspan="4">
+        <mfBootstrapPaginator [rowsOnPageSet]="[5,10,25]"></mfBootstrapPaginator>
+      </td>
+    </tr>
+  </tfoot>
+</table>
+
+

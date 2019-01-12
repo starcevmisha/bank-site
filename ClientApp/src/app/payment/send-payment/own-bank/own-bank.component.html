@@ -1,0 +1,53 @@
+<div class="row ">
+
+  <div class="row instruction-header">
+    <div class="col-md-7 col-sm-12">
+      Сформируйте платежку и загрузите её в свой банк для подписи
+    </div>
+  </div>
+  <div class="payment-from-own-bank">
+    <form [formGroup]="paymentFormOwn" (ngSubmit)="onSubmit(paymentFormOwn)" 
+    id="payment-form-own" method="POST" action="javascript:void(0);">
+
+
+      <div class="row input-div" *ngFor="let input of inputs">
+        <div class="col-md-3 col-sm-3 input-label">
+          <label for="{{input.id}}">{{input.label}}</label>
+        </div>
+        <div class="col-md-6 col-sm-9">
+          <input type="text" formControlName="{{input.id}}" id="{{input.id}}" placeholder="{{input.placeholder}}" />
+          <div *ngIf="paymentFormOwn.get(input.id).status ==='INVALID' && paymentFormOwn.get(input.id).touched">{{input.hint}}</div>
+        </div>
+      </div>
+
+      <div class="row input-div">
+        <div class="col-md-3 col-sm-3 input-label">
+          <label for="payment-purpose">За что</label>
+        </div>
+        <div class="col-md-6 col-sm-9">
+          <input type="text" formControlName="purpose" class="payment-purpose" id="paymentPurpose" [value]="" placeholder="Назанчение платежа"
+            readonly />
+          <div class="" data-toggle="buttons">
+            <input type="radio" id="radio1" name="radios" (click)="onSelectPurpose('НДС 10%')">
+            <label for="radio1">НДС 10%</label>
+            <input type="radio" id="radio2" name="radios" (click)="onSelectPurpose('НДС 18%')">
+            <label for="radio2">НДС 18%</label>
+            <input type="radio" id="radio3" name="radios" (click)="onSelectPurpose('Без НДС')">
+            <label for="radio3">Без НДС</label>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="aqua-button-div">
+            <span class="aqua" [class.aqua_color]="paymentFormOwn.valid">
+                <input type="submit" [disabled]="paymentFormOwn.invalid" class="submit-btn" value="Сформировать платёжку">
+            </span>
+        </div>
+      </div>
+      <div class="row">
+        <input type="reset" class="reset-btn" value="Очистить форму">
+      </div>
+    </form>
+  </div>
+</div>

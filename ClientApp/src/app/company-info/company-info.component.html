@@ -1,0 +1,27 @@
+<div class="company-info">
+
+  <div class="row">
+    <div class='col-md-7 col-sm-12'>
+
+      <span class="company-name">
+        <h1>{{ company.name }}</h1>
+      </span>
+
+      <div class="contacts">
+        <a href="tel:{{company.phone}}" class="phone">{{company.phone}}</a>
+        <a [href]="company.site" class="site">{{company.site}}</a>
+        <a [href]="company.mail" class="email">{{company.mail}}</a>
+        <a [href]="" class="comapny-info-link">Информация о компании</a>
+      </div>
+
+      <div class="showRequisites">
+        Показать Реквизиты
+      </div>
+    </div>
+
+    <div class="col-md-4 col-sm-4 company-img-div">
+      <img [src]="company.imagePath" alt="{{ company.name }}" class="img-responsive center-block company-img">
+    </div>
+
+
+  </div>

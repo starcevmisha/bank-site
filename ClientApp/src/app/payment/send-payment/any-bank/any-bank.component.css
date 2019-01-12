@@ -1,0 +1,142 @@
+.panel>.panel-heading {
+    background-image: none;
+    background-color: transparent;
+    color: white;
+    border-bottom: 0px solid transparent;
+}
+
+.panel {
+    background-color: #eee;
+    border-radius: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.credit-card-box .panel-title {
+    display: inline;
+    font-weight: bold;
+}
+
+.credit-card-box label.error {
+    font-weight: bold;
+    color: red;
+    padding: 2px 8px;
+    margin-top: 2px;
+}
+
+.credit-card-box .payment-errors {
+    font-weight: bold;
+    color: red;
+    padding: 2px 8px;
+    margin-top: 2px;
+}
+
+.input-div {
+    margin: 10px 0 20px 0;
+}
+
+.input-label {
+    padding-left: 100px;
+    color: rgb(70, 69, 69);
+    font-weight: bolder;
+}
+
+
+input[type=text],input[type=number] {
+    background-color: transparent;
+    height: 17px;
+    border: 0;
+    width: calc(100% - 2px);
+    padding-left: 10px;
+    box-shadow: -8px 10px 0px -7px #969595, 8px 10px 0px -7px #969595;
+    -webkit-transition: box-shadow 0.3s;
+    transition: box-shadow 0.3s;
+    font-size: 16px;
+}
+
+
+
+input:focus{
+    outline: none;
+    /* box-shadow: -8px 10px 0px -7px #4EA6EA, 8px 10px 0px -7px #4EA6EA; */
+}
+input[type='number'] {
+    -moz-appearance:textfield;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
+
+input.ng-valid:focus{
+    box-shadow: -8px 10px 0px -7px green, 8px 10px 0px -7px green;
+}
+
+input.ng-invalid {
+    box-shadow: -8px 10px 0px -7px red, 8px 10px 0px -7px red;
+}
+input.ng-untouched {
+    box-shadow: -8px 10px 0px -7px #969595, 8px 10px 0px -7px #969595;
+}
+
+
+.cardlogo-img {
+    width: 140px;
+}
+
+.cardpayment_submit-button {
+    padding-left: 20px;
+    margin-top: 20px;
+}
+
+a {
+    text-decoration: none;
+    outline: none;
+    display: inline-block;
+    color: white;
+    padding: 20px 30px;
+    margin: 10px 20px;
+    border-radius: 10px;
+    font-family: 'Montserrat', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    background-image: linear-gradient(to right, #9EEFE1 0%, #4830F0 51%, #9EEFE1 100%);
+    background-size: 200% auto;
+    box-shadow: 0 0 20px rgba(0, 0, 0, .1);
+    transition: .5s;
+}
+
+a:hover {
+    background-position: right center;
+}
+
+.submit-btn {
+    background-color: transparent;
+    color: black;
+    border: 1px solid black;
+    padding: 6px;
+    cursor: pointer;
+    overflow: hidden;
+    outline: none;
+
+}
+
+.aqua {
+    font-weight: 700;
+    padding: 10px 30px;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    background-size: 100% 100%;
+    background-image: url("https://tochka.com/theme/main/img/button/button_1.png");
+    filter: grayscale(100%);
+}
+.aqua_color{
+    filter:none;
+}
+
+.aqua-button-div {
+    display: inline-block;
+    position: relative;
+    text-align: center;
+}

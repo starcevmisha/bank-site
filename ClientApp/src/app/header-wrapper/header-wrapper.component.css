@@ -1,0 +1,91 @@
+.head-wrapper__box {
+  background: white;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+}
+#head {
+  height: 50px;
+  overflow: hidden;
+  max-width: 1250px;
+  margin: 0 auto 10px;
+  padding: 0px 30px;
+}
+#head .logo-section {
+  float: left;
+  padding-right: 45px;
+  padding-top: 4px;
+  width: 300px;
+}
+a {
+  color: #08c;
+  text-decoration: none;
+}
+img {
+  width: auto\9;
+  height: auto;
+  max-width: 100%;
+  vertical-align: middle;
+  border: 0;
+  -ms-interpolation-mode: bicubic;
+}
+
+body {
+  background: #eeeeee;
+  font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.42857143;
+  color: #333;
+}
+
+#head .user-section {
+  float: right;
+  width: 180px;
+  text-align: right;
+  padding: 22px 0 0 0;
+}
+#head .user-section .b-logout {
+  padding-left: 3px
+}
+#head .menu-section {
+  float: left;
+  padding-top: 5px;
+}
+a.trip-logout-button {
+  width: 18px;
+  height: 19px;
+  display: block;
+  float: right;
+  margin-right: 8px;
+}
+a:hover, a:focus {
+  color: #005580;
+  text-decoration: underline;
+}
+a:hover, a:active {
+  outline: 0;
+}
+
+#head .user-section .b-logout {
+  padding-left: 3px;
+  display: none;
+}
+
+.head-wrapper__logo-img {
+  width: 20rem;
+  height: auto;
+}
+
+@media screen and (max-width: 1100px) {
+  #head .menu-section{
+    width: 45%;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  #head{
+    width: 800px;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  #head .menu-section { width: 500px; }
+}

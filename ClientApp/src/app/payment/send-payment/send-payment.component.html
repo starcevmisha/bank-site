@@ -1,0 +1,21 @@
+<div class="send-payment-div">
+
+
+    <div class="row payments_nav-btns" data-toggle="buttons">
+        <div class="col-md-4 col-sm-4">
+            <input type="radio" id="other" name = "radios-nav" (click)="onSelect('other-bank')" checked>
+            <label for="other"><img class="payments_nav-btns_label-image" src="https://cdn1.iconfinder.com/data/icons/material-design-icons-light/24/credit-card-512.png">С карты любого банка</label>
+        </div>
+        <div class="col-md-4 col-sm-4">
+            <input type="radio" id="own"  name = "radios-nav"(click)="onSelect('own-bank')">
+            <label for="own"><img class="payments_nav-btns_label-image" src="https://cdn1.iconfinder.com/data/icons/material-design-icons-light/24/bank-512.png">Из своего интернет банка</label>
+        </div>
+    </div>
+
+    <div *ngIf="featureSelected === 'own-bank'">
+        <app-own-bank></app-own-bank>
+    </div>
+    <div *ngIf="featureSelected === 'other-bank'">
+        <app-any-bank></app-any-bank>
+    </div>
+</div>

@@ -1,0 +1,24 @@
+<div class="head-wrapper__box">
+  <div id="head">
+    <a href="/" title="Система регистрации инструктажей. Главная.">
+      <div class="logo-section">
+        <img src="https://www.oceanbank.ru/wp-content/uploads/2018/01/pochta-bank.jpg" class="head-wrapper__logo-img" />
+      </div>
+    </a>
+
+    <div class="menu-section">
+    </div>
+
+    <div class="user-section">
+      
+      <span class="user-hello-label"><a>{{this.getName()}}</a></span>
+      <button (click)=logOut(); [hidden]="!this.getName()">LogOut</button>
+      
+      <button (click)=logIn(); [hidden]="!!this.getName()">LogIn</button>
+      
+      <span class="b-logout">
+                <a href="/Account/Logout" class="trip-logout-button"></a>
+            </span>
+    </div>
+  </div>
+</div>

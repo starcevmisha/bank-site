@@ -1,0 +1,47 @@
+<p *ngIf="!data"><em>Loading...</em></p>
+<table class="table table-striped" [mfData]="data" #mf="mfDataTable" [mfRowsOnPage]="5" *ngIf="data">
+  <thead>
+    <tr>
+      <th style="width: 5%">
+        <mfDefaultSorter by="id">Id</mfDefaultSorter>
+      </th>
+      <th style="width: 5%">
+        <mfDefaultSorter by="inn">Инн или Название</mfDefaultSorter>
+      </th>
+      <th style="width: 10%">
+        <mfDefaultSorter by="bik">БИК</mfDefaultSorter>
+      </th>
+      <th style="width: 10%">
+        <mfDefaultSorter by="accountNumber">Номер счёта</mfDefaultSorter>
+      </th>
+      <th style="width: 10%">
+        <mfDefaultSorter by="amount">Сумма</mfDefaultSorter>
+      </th>
+      <th style="width: 10%">
+        <mfDefaultSorter by="phoneNumber">Телефон</mfDefaultSorter>
+      </th>
+      <th style="width: 10%">
+        <mfDefaultSorter by="email">Почта</mfDefaultSorter>
+      </th>
+
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let request of mf.data">
+      <td>{{ request.id }}</td>
+      <td>{{ request.inn }}</td>
+      <td>{{ request.bik }}</td>
+      <td>{{ request.accountNumber }}</td>
+      <td>{{ request.amount }}</td>
+      <td>{{ request.phoneNumber }}</td>
+      <td>{{ request.email }}</td>
+    </tr>
+  </tbody>
+  <tfoot>
+    <tr>
+      <td colspan="4">
+        <mfBootstrapPaginator [rowsOnPageSet]="[5,10,25]"></mfBootstrapPaginator>
+      </td>
+    </tr>
+  </tfoot>
+</table>

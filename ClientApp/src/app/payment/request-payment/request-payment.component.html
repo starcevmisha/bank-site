@@ -1,0 +1,43 @@
+<button id="modal-btn" style="display: none;" (click)="showDialog = !showDialog" class="btn">Open</button>
+<app-modal [(visible)]="showDialog">
+  <h1>Спасибо. Мы сохранили ваш запрос</h1>
+  <button (click)="showDialog = !showDialog" class="btn">Close</button>
+</app-modal>
+
+<form [formGroup]="paymentForm" (ngSubmit)="onSubmit(paymentForm)">
+  <div class="row input-div" *ngFor="let input of inputs">
+    <div class="col-md-4 col-sm-3 input-label">
+      <label for="{{input.id}}">{{input.label}}</label>
+    </div>
+
+    <div *ngIf="(input.id=='paymentPurpose'); else elseBlock" class="col-md-6 col-sm-9">
+      <input formControlName="{{input.id}}" type="text" class="payment-purpose" id="payment-purpose" placeholder="{{input.placeholder}}" readonly/>
+      <div class="" data-toggle="buttons">
+        <input type="radio" id="radio1" name="radios" (click)="onSelectPurpose('НДС 10%')">
+        <label for="radio1">НДС 10%</label>
+        <input type="radio" id="radio2" name="radios" (click)="onSelectPurpose('НДС 18%')">
+        <label for="radio2">НДС 18%</label>
+        <input type="radio" id="radio3" name="radios" (click)="onSelectPurpose('Без НДС')">
+        <label for="radio3">Без НДС</label>
+      </div>
+    </div>
+
+    <ng-template #elseBlock>
+      <div class="col-md-6 col-sm-9">
+        <input formControlName="{{input.id}}" type="text" id="{{input.id}}" placeholder="{{input.placeholder}}" />
+        <div *ngIf="paymentForm.get(input.id).status ==='INVALID' && paymentForm.get(input.id).touched">{{input.hint}}</div>
+      </div>
+    </ng-template>
+  </div>
+
+  <div class="row">
+    <div class="aqua-button-div">
+        <span class="aqua" [class.aqua_color]="paymentForm.valid">
+            <input type="submit" [disabled]="paymentForm.invalid" class="submit-btn" value="Заплатить">
+        </span>
+    </div>
+  </div>
+  <div class="row">
+    <input type="reset" class="reset-btn" value="Очистить форму">
+  </div>
+</form>

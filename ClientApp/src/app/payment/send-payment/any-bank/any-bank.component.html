@@ -1,0 +1,94 @@
+<div class="row">
+        
+        <button id="modal-btn" style="display: none;" (click)="showDialog = !showDialog" class="btn">Open</button>
+        <app-modal [(visible)]="showDialog">
+          <h1>Спасибо. Мы обрабатываем ваш платёж</h1>
+          <button (click)="showDialog = !showDialog" class="btn">Close</button>
+        </app-modal>
+
+
+
+    <form [formGroup]="paymentForm" (ngSubmit)="onSubmit(paymentForm)" id="payment-form" method="POST" action="javascript:void(0);">
+        <div class="payment-card col-md-5 col-sm-12 col-xs-12">
+            <div class="panel panel-default credit-card-box">
+
+                <div class="panel-heading">
+                    <div class="row">
+                        <img class="cardlogo-img pull-right" src="https://www.loveeatingasianfood.com.au/leaf-in-berry/wp-content/uploads/sites/4/2016/08/visa-mastercard-logo-png-5h6zv68l-1.png">
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <div class="row card-numer-row">
+                        <div class="col-xs-12 col-md-12">
+                            <div class="input-div">
+                                <input formControlName="creditCard" placeholder="Номер карты" id="cc-number" type="text"
+                                    autocomplete="cc-number" ccNumber>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row date-cvc-row">
+                        <div class="col-xs-7 col-md-7">
+                            <div class="input-div">
+                                <input formControlName="expirationDate" id="cc-exp-date" type="text" autocomplete="cc-exp"
+                                    ccExp placeholder="MM / YY">
+                                <div *ngIf="paymentForm.get('expirationDate').status ==='INVALID' && paymentForm.get('expirationDate').touched">Дата
+                                    устарела</div>
+                            </div>
+                        </div>
+                        <div class="col-xs-5 col-md-5 pull-right">
+                            <div class="input-div">
+                                <input formControlName="cvc" type='password' id="cc-cvc" type="text" autocomplete="off"
+                                    ccCvc placeholder="CVC">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="payment-details col-md-6 col-sm-12">
+
+            <div class="row input-div">
+                <div class="col-md-4">
+                    <label for="sum">Сумма</label>
+                </div>
+                <div class="col-md-8">
+                    <input formControlName="sum" type="number" id="sum" placeholder="от 1000 до 75 000 р." />
+                    <div *ngIf="paymentForm.get('sum').status ==='INVALID' && paymentForm.get('sum').touched">от 1000
+                        до 75 000 р.</div>
+                </div>
+            </div>
+
+            <div class="row input-div">
+                <div class="col-md-4">
+                    <label for="comment">Комментарий</label>
+                </div>
+                <div class="col-md-8">
+                    <input formControlName="comment" type="text" id="comment" placeholder="до 150 символов" />
+                </div>
+            </div>
+
+            <div class="row input-div">
+                <div class="col-md-4">
+                    <label for="email">Ваша эл.почта</label>
+                </div>
+                <div class="col-md-8">
+                    <input formControlName="email" type="text" id="email" placeholder="Для квитанции об оплате" />
+                    <div *ngIf="paymentForm.get('email').status ==='INVALID' && paymentForm.get('email').touched">Некоректный
+                        формат</div>
+                </div>
+            </div>
+
+            <div class="row cardpayment_submit-button">
+                <div class="row">
+                    <div class="aqua-button-div">
+                        <span class="aqua" [class.aqua_color]="paymentForm.valid">
+                            <input type="submit" [disabled]="paymentForm.invalid" class="submit-btn" value="Заплатить">
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </form>
+</div>

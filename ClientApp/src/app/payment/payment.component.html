@@ -1,0 +1,22 @@
+<div class="payment-div">
+
+        <div class="row payments_nav-btns" data-toggle="buttons">
+            <div class="col-md-2 col-sm-6">
+                <input type="radio" id="send" name = "1"(click)="onSelectType('send')" checked>
+                <label for="send">Заплатить</label>
+            </div>
+            <div class="col-md-4 col-sm-6">
+                <input type="radio" id="request"  name = "1" (click)="onSelectType('request')">
+                <label for="request">Запросить платёж</label>
+    
+            </div>
+        </div>
+    
+        <div *ngIf="selectedPaymentType === 'send'">
+            <app-send-payment></app-send-payment>
+        </div>
+        <div *ngIf="selectedPaymentType === 'request'">
+            <app-request-payment></app-request-payment>
+        </div>
+    </div>
+

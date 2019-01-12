@@ -1,0 +1,21 @@
+<div class="admin-panel">
+
+  <div class="row admin_nav-btns" data-toggle="buttons">
+    <div class="col-md-3 col-sm-6">
+      <input type="radio" id="payment" name="1" (click)="onSelectType('payment')" checked>
+      <label for="payment">Платежи по картам</label>
+    </div>
+    <div class="col-md-4 col-sm-6">
+      <input type="radio" id="request" name="1" (click)="onSelectType('request')">
+      <label for="request">Запросы платежей</label>
+    </div>
+  </div>
+
+  <div *ngIf="selectedPaymentType === 'payment'">
+    <app-payment-table></app-payment-table>
+  </div>
+  <div *ngIf="selectedPaymentType === 'request'">
+    <app-request-table></app-request-table>
+  </div>
+
+</div>
